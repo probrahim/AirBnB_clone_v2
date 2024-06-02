@@ -56,6 +56,13 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+
+    def close(self):
+        """display our HBNB data
+        """
+        self.reload()
+
+
     def delete(self, obj=None):
         """Delete an object from __objects"""
         if obj:
@@ -64,3 +71,5 @@ class FileStorage:
                 del self.__objects[key]
             except KeyError:
                 pass
+     if (obj):
+            self.__objects.pop("{}.{}".format(type(obj).__name__, obj.id))
